@@ -1,0 +1,40 @@
+.films-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  font-size: 12px;
+  line-height: 1.17;
+  cursor: pointer;
+
+  @media screen and (min-width: $tablet) {
+    row-gap: 8px;
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+  @media screen and (min-width: $desktop) {
+    row-gap: 12px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  :hover,
+  :focus {
+    img {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.img-wrapper {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.films-card__title {
+  text-transform: uppercase;
+}
+
+.films-card__genre {
+  color: $accentColor;
+}

@@ -1,0 +1,32 @@
+.form {
+  position: relative;
+  margin: 48px auto 16px;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 36px;
+    margin-bottom: 20px;
+    width: 336px;
+  }
+}
+
+.form_input {
+  padding: 4px 12px 4px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $secondaryColor;
+  background-color: transparent;
+  border: none;
+  border-bottom: $inputBorder;
+  width: 100%;
+}
+
+.form__submit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+}

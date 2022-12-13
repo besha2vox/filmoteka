@@ -1,2 +1,10 @@
+@import './utils/vars';
+@import './utils/animation';
 @import './common';
-@import './example';
+@import './components/header/header';
+@import './components/header/nav';
+@import './components/header/form';
+@import './components/header/error-text';
+@import './components/main/section';
+@import './components/footer/footer';
+@import './components/modal/movie-modal';
