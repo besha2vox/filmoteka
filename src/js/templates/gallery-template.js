@@ -18,7 +18,7 @@ export function galleryTemplate({
       <img width="395" src=${url} alt=${title || name} />
       </div>
       <h2 class="films-card__title">${title || name}</h2>
-      <p class="films-card__genre">${genres} | ${date}</p>
+      <p class="films-card__genre">${genres} | ${date.split('-')[0]}</p>
     </article>
   </li>`;
 }
