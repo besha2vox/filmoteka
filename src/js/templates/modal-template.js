@@ -12,7 +12,7 @@ export function modalTemplate({
   const genresNames = genres.map(genre => genre.name).join(', ');
 
   return `<div class="modal-movie">
-  <button type="button" class="modal-movie__close">
+  <button type="button" class="modal__close">
   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
   <path d="M8 22L22 8" stroke="black" stroke-width="2"/>

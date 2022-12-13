@@ -16,7 +16,7 @@ export class Modal {
     );
     document.body.style.overflow = 'hidden';
     this.elem = document.querySelector('.backdrop');
-    this.closeIcon = document.querySelector('.modal-movie__close');
+    this.closeIcon = document.querySelector('.modal__close');
 
     this.elem.addEventListener('click', this.onbackDropClose);
     this.closeIcon.addEventListener('click', this.onCloseClick);
