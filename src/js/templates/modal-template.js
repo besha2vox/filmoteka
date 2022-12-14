@@ -11,7 +11,7 @@ export function modalTemplate({
   const url = `https://image.tmdb.org/t/p/original${poster_path}`;
   const genresNames = genres.map(genre => genre.name).join(', ');
 
-  return `<div class="modal-movie">
+  return `<div class="modal">
   <button type="button" class="modal__close">
   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
