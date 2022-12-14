@@ -1,3 +1,6 @@
+import { genres } from '../data/genres';
+console.log('genres', genres);
+
 export function galleryTemplate({
   id,
   poster_path,
@@ -10,15 +13,18 @@ export function galleryTemplate({
   if (!release_date && !first_air_date) return;
   const url = `https://image.tmdb.org/t/p/original${poster_path}`;
   const date = release_date || first_air_date;
-  const genres = genre_ids.join(',');
+  const genresArray = genre_ids.map(id =>
+    genres.find(genre => genre.id === id)
+  );
+  const genresNames = genresArray.map(({ name }) => name).join(', ');
 
-  return `<li class="films-list__item">
+  return `<li class="films-list__item"> 
     <article class="films-card" id=${id}>
     <div class="img-wrapper">
       <img width="395" src=${url} alt=${title || name} />
       </div>
       <h2 class="films-card__title">${title || name}</h2>
-      <p class="films-card__genre">${genres} | ${date.split('-')[0]}</p>
+      <p class="films-card__genre">${genresNames} | ${date.split('-')[0]}</p>
     </article>
   </li>`;
 }
