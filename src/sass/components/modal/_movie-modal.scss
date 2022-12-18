@@ -11,7 +11,7 @@
   width: 100%;
   max-width: 806px;
   background-color: $primeryBackgroundColor;
-  overflow: scroll;
+  overflow: auto;
 
   @media screen and (min-width: $tablet) {
     flex-direction: row;
@@ -29,6 +29,7 @@
   border-radius: 5px;
   overflow: hidden;
   height: fit-content;
+  max-width: 375px;
 }
 
 .modal-movie__info-weapper {
@@ -95,4 +96,14 @@
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
+}
+
+body.dark-theme {
+  & .modal {
+    background-color: #12181c;
+  }
+
+  & .modal__close {
+    fill: #ffffff;
+  }
 }

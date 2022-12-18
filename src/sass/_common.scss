@@ -12,9 +12,15 @@ body {
   color: $primeryTextColor;
   background-color: $primeryBackgroundColor;
 
+  transition: color 300ms $cubicBezier, background-color 300ms $cubicBezier;
+
   @media screen and (min-width: $desktop) {
     font-size: 20;
     line-height: 1.2;
+  }
+  &.dark-theme {
+    background-color: #12181c;
+    color: #ffffff;
   }
 }
 

@@ -1,5 +1,4 @@
-import { genres } from '../data/genres';
-console.log('genres', genres);
+import { genresEn, genresUa, checkGenresLanguage } from '../data/genres';
 
 export function galleryTemplate({
   id,
@@ -13,10 +12,14 @@ export function galleryTemplate({
   if (!release_date && !first_air_date) return;
   const url = `https://image.tmdb.org/t/p/original${poster_path}`;
   const date = release_date || first_air_date;
+  const genres = checkGenresLanguage();
   const genresArray = genre_ids.map(id =>
     genres.find(genre => genre.id === id)
   );
-  const genresNames = genresArray.map(({ name }) => name).join(', ');
+  const genresNames = genresArray
+    .map(({ name }) => name)
+    .slice(0, 2)
+    .join(', ');
 
   return `<li class="films-list__item"> 
     <article class="films-card" id=${id}>

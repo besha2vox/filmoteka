@@ -12,7 +12,7 @@ export class Fetch {
 
     this.BASE_URL = 'https://api.themoviedb.org/3/';
     this.API_KEY = '9cca312caffd11f4ae9f11244d585025';
-    this.TRENDING_MOVIES = 'trending/all/day';
+    this.TRENDING_MOVIES = 'trending/all/';
     this.MOVIE_BY_ID = 'movie/';
     this.MOVIE_BY_KEYWORD = 'search/movie';
   }
@@ -30,23 +30,33 @@ export class Fetch {
       });
   }
 
-  async fetchTrendingMovies() {
-    const url = `${this.BASE_URL}${this.TRENDING_MOVIES}?api_key=${this.API_KEY}&page=${this.pageToFetch}`;
+  async fetchTrendingMovies(tranding) {
+    const url = `${this.BASE_URL}${this.TRENDING_MOVIES}${tranding}?api_key=${
+      this.API_KEY
+    }&page=${this.pageToFetch}&language=${this.getLanguage()}`;
     return await this.basicFetch(url);
   }
 
   async fetchSearchMoviesByID(id) {
-    const url = `${this.BASE_URL}${this.MOVIE_BY_ID}${id}?api_key=${this.API_KEY}`;
+    const url = `${this.BASE_URL}${this.MOVIE_BY_ID}${id}?api_key=${
+      this.API_KEY
+    }&language=${this.getLanguage()}`;
     return await this.basicFetch(url);
   }
 
   async fetchIDMoviesByKeyWord(keyword) {
-    const url = `${this.BASE_URL}${this.MOVIE_BY_KEYWORD}?api_key=${this.API_KEY}&page=${this.pageToFetch}&query=${keyword}`;
+    const url = `${this.BASE_URL}${this.MOVIE_BY_KEYWORD}?api_key=${
+      this.API_KEY
+    }&page=${this.pageToFetch}&query=${keyword}&language=${this.getLanguage()}`;
     return await this.basicFetch(url);
   }
 
   resetPage() {
     this._pageToFetch = 0;
+  }
+
+  getLanguage() {
+    return localStorage.getItem('lang');
   }
 
   get queryToFetch() {

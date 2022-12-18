@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
-
+  color: #ffffff;
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -41,4 +41,11 @@
       background-image: url('../images/bgi-home-desktop-2x.png');
     }
   }
+}
+
+.utils {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 30px;
 }

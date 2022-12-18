@@ -27,7 +27,6 @@ export class Modal {
     const backdrop = document.querySelector('.backdrop');
     backdrop.remove();
     document.body.style.overflow = '';
-    console.log('this.onClose();', this.onClose);
     this.onClose();
   }
 

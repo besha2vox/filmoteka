@@ -1,15 +1,29 @@
+import { genresEn, genresUa, checkGenresLanguage } from '../data/genres';
+
 export function modalTemplate({
   poster_path,
-  genres,
+  // genres,
   vote_average,
   vote_count,
   popularity,
   original_title,
+  original_name,
   title,
+  name,
   overview,
+  genre_ids,
 }) {
   const url = `https://image.tmdb.org/t/p/original${poster_path}`;
-  const genresNames = genres.map(genre => genre.name).join(', ');
+  // const genresNames = genres.map(genre => genre.name).join(', ');
+
+  const genres = checkGenresLanguage();
+  const genresArray = genre_ids.map(id =>
+    genres.find(genre => genre.id === id)
+  );
+  const genresNames = genresArray
+    .map(({ name }) => name)
+    .slice(0, 2)
+    .join(', ');
 
   return `<div class="modal">
   <button type="button" class="modal__close">
@@ -19,11 +33,11 @@ export function modalTemplate({
   </svg>
   </button>
     <div class="modal__img-wrapper">
-      <img width="375" src="${url}" alt="${title}" />
+      <img width="375" src="${url}" alt="${title || name}" />
     </div>
     <div class="modal-movie__descr">      
       <div class="modal-movie__info-weapper">
-      <h2 class="modal-movie__title">${title}</h2>  
+      <h2 class="modal-movie__title">${title || name}</h2>  
 
       <ul class="modal-movie__list list">
 
@@ -41,7 +55,9 @@ export function modalTemplate({
 
       <li class="modal-movie__item">
       <p class="modal-movie__key">Original Title </p>
-       <p class="modal-movie__value modal-movie__value--uppercase">${original_title}</p>
+       <p class="modal-movie__value modal-movie__value--uppercase">${
+         original_title || original_name
+       }</p>
       </li>
 
       <li class="modal-movie__item">
