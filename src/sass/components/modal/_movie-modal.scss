@@ -1,15 +1,18 @@
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 48px 20px;
   row-gap: 20px;
   width: 100%;
   max-width: 806px;
+  max-height: 100%;
   background-color: $primeryBackgroundColor;
   overflow: auto;
 
@@ -23,13 +26,6 @@
     padding: 40px 12px;
     column-gap: 16px;
   }
-}
-
-.modal__img-wrapper {
-  border-radius: 5px;
-  overflow: hidden;
-  height: fit-content;
-  max-width: 375px;
 }
 
 .modal-movie__info-weapper {
@@ -106,4 +102,15 @@ body.dark-theme {
   & .modal__close {
     fill: #ffffff;
   }
+}
+
+.trailer {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.poster {
+  border-radius: 5px;
+  max-width: 375px;
 }

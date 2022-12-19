@@ -4,6 +4,7 @@ import { galleryTemplate } from './js/templates/gallery-template';
 import { modalTemplate } from './js/templates/modal-template';
 import { ThemeSwitcher } from './js/theme-switcher';
 import { LanguageSwitcher } from './js/language-switcher';
+import { renderTrailer } from './js/trailer';
 
 const MOVIE_STORAGE_KEY = 'movie-list';
 
@@ -67,6 +68,8 @@ async function onMovieClick(e) {
 
   const markup = modalTemplate(movie);
   modal.open(markup);
+
+  renderTrailer(article.id);
 }
 
 function setMovieLocalStorage(movies) {

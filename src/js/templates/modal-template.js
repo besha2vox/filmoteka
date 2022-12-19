@@ -1,4 +1,4 @@
-import { genresEn, genresUa, checkGenresLanguage } from '../data/genres';
+import { checkGenresLanguage } from '../data/genres';
 
 export function modalTemplate({
   poster_path,
@@ -17,8 +17,8 @@ export function modalTemplate({
   // const genresNames = genres.map(genre => genre.name).join(', ');
 
   const genres = checkGenresLanguage();
-  const genresArray = genre_ids.map(id =>
-    genres.find(genre => genre.id === id)
+  const genresArray = genre_ids.map(genreId =>
+    genres.find(genre => genre.id === genreId)
   );
   const genresNames = genresArray
     .map(({ name }) => name)
@@ -32,10 +32,10 @@ export function modalTemplate({
   <path d="M8 22L22 8" stroke="black" stroke-width="2"/>
   </svg>
   </button>
-    <div class="modal__img-wrapper">
-      <img width="375" src="${url}" alt="${title || name}" />
-    </div>
-    <div class="modal-movie__descr">      
+
+    <img class="poster" width="375" src="${url}" alt="${title || name}" />
+    <div class="modal-movie__descr">   
+      
       <div class="modal-movie__info-weapper">
       <h2 class="modal-movie__title">${title || name}</h2>  
 
@@ -71,6 +71,9 @@ export function modalTemplate({
         <p class="modal-movie__about">About</p>
         <p class="modal-movie__overview">${overview}</p>
         </div>
+        
+        <div class="trailer-wrapper"></div>
+
         <div class="modal-movie__button-wrapper">
           <button class="modal-movie__btn">add to Watched</button>
           <button class="modal-movie__btn">add to queue</button>

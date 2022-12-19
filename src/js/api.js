@@ -51,6 +51,11 @@ export class Fetch {
     return await this.basicFetch(url);
   }
 
+  async fetchTreilerById(id) {
+    const url = `${this.BASE_URL}movie/${id}/videos?api_key=${this.API_KEY}`;
+    return await this.basicFetch(url);
+  }
+
   resetPage() {
     this._pageToFetch = 0;
   }

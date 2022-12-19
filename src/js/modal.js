@@ -14,7 +14,7 @@ export class Modal {
       'beforeend',
       `<div class="backdrop">${markup}</div>`
     );
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
     this.elem = document.querySelector('.backdrop');
     this.closeIcon = document.querySelector('.modal__close');
 
@@ -26,7 +26,8 @@ export class Modal {
   close() {
     const backdrop = document.querySelector('.backdrop');
     backdrop.remove();
-    document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
+    console.log('this.onClose();', this.onClose);
     this.onClose();
   }
 
