@@ -25,14 +25,9 @@ export function modalTemplate({
     .slice(0, 2)
     .join(', ');
 
-  return `<div class="modal">
-  <button type="button" class="modal__close">
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
-  <path d="M8 22L22 8" stroke="black" stroke-width="2"/>
-  </svg>
-  </button>
+  const isUkrainian = localStorage.getItem('lang') === 'uk-UK';
 
+  return `<div class="modal-movie">
     <img class="poster" width="375" src="${url}" alt="${title || name}" />
     <div class="modal-movie__descr">   
       
@@ -42,41 +37,53 @@ export function modalTemplate({
       <ul class="modal-movie__list list">
 
       <li class="modal-movie__item">
-      <p class="modal-movie__key">Vote / Votes </p>
+      <p class="modal-movie__key">${
+        isUkrainian ? 'Оцінка / Оцінок' : 'Vote / Votes'
+      } </p>
        <p class="modal-movie__value">
          <span class="modal-movie__value--accent">${vote_average}</span> / ${vote_count}
        </p>
       </li>
 
       <li class="modal-movie__item">
-       <p class="modal-movie__key">Popularity </p>
+       <p class="modal-movie__key">${
+         isUkrainian ? 'Популярність' : 'Popularity'
+       } </p>
        <p class="modal-movie__value">${popularity}</p>
       </li>
 
       <li class="modal-movie__item">
-      <p class="modal-movie__key">Original Title </p>
+      <p class="modal-movie__key">${
+        isUkrainian ? 'Оригінальна назва' : 'Original Title'
+      }  </p>
        <p class="modal-movie__value modal-movie__value--uppercase">${
          original_title || original_name
        }</p>
       </li>
 
       <li class="modal-movie__item">
-      <p class="modal-movie__key">Genre </p>
+      <p class="modal-movie__key">${isUkrainian ? 'Жанр' : 'Genre'}  </p>
        <p class="modal-movie__value">${genresNames}</p>
       </li>
       
       </ul>  
 
         <div class="modal-movie__about-wrapper">
-        <p class="modal-movie__about">About</p>
+        <p class="modal-movie__about">${
+          isUkrainian ? 'Про що фільм' : 'About'
+        }</p>
         <p class="modal-movie__overview">${overview}</p>
         </div>
         
         <div class="trailer-wrapper"></div>
 
         <div class="modal-movie__button-wrapper">
-          <button class="modal-movie__btn">add to Watched</button>
-          <button class="modal-movie__btn">add to queue</button>
+          <button class="modal-movie__btn">${
+            isUkrainian ? 'Додати в переглянуті' : 'add to Watched'
+          } </button>
+          <button class="modal-movie__btn">${
+            isUkrainian ? 'Додати в чергу' : 'add to queue'
+          } </button>
         </div>
       </div>
     </div>

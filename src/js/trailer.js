@@ -7,7 +7,6 @@ const api = new Fetch();
 
 async function searchTrailer(id) {
   const trailers = await api.fetchTreilerById(id);
-  console.log('trailers');
 
   if (!trailers || !trailers.results[0]) return '';
 

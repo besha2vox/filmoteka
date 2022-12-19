@@ -27,6 +27,22 @@ body {
   &.modal-open {
     overflow: hidden;
   }
+
+  &.uk .uk {
+    display: block;
+  }
+
+  &.uk .en {
+    display: none;
+  }
+
+  &.en .en {
+    display: block;
+  }
+
+  &.en .uk {
+    display: none;
+  }
 }
 
 h1,

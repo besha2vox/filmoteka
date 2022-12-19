@@ -20,3 +20,11 @@ footer {
     display: inline;
   }
 }
+
+.heart {
+  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation-name: heartScale;
+  animation-duration: 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}

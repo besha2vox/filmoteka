@@ -10,10 +10,18 @@ export class Modal {
   onClose() {}
 
   open(markup) {
-    document.body.insertAdjacentHTML(
-      'beforeend',
-      `<div class="backdrop">${markup}</div>`
-    );
+    const template = `<div class="backdrop">
+    <div class="modal">
+    <button type="button" class="modal__close">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 8L22 22" stroke="black" stroke-width="2"/>
+    <path d="M8 22L22 8" stroke="black" stroke-width="2"/>
+    </svg>
+    </button>
+    ${markup}
+    </div>
+    </div>`;
+    document.body.insertAdjacentHTML('beforeend', template);
     document.body.classList.add('modal-open');
     this.elem = document.querySelector('.backdrop');
     this.closeIcon = document.querySelector('.modal__close');

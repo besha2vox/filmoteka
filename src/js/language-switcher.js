@@ -35,6 +35,7 @@ export class LanguageSwitcher {
       this.changeSwitcherClass(this.langs.EN, this.langs.UA);
       this.language.innerHTML = 'EN';
 
+      toggleBodyClass(isUaLang);
       getTranding();
     }
 
@@ -42,6 +43,7 @@ export class LanguageSwitcher {
       this.changeSwitcherClass(this.langs.UA, this.langs.EN);
       this.language.innerHTML = 'UA';
 
+      toggleBodyClass(isUaLang);
       getTranding();
     }
   }
@@ -55,4 +57,16 @@ export class LanguageSwitcher {
     const storageLang = localStorage.getItem(this.LANG_STORAGE_KEY);
     return storageLang === this.langs.UA || !storageLang;
   }
+}
+
+function toggleBodyClass(isUaLang) {
+  console.log('isUaLang', isUaLang);
+  if (isUaLang) changeBodyClass('en', 'uk');
+  if (!isUaLang) changeBodyClass('uk', 'en');
+}
+
+function changeBodyClass(oldClass, newClass) {
+  if (document.body.classList.contains(oldClass))
+    document.body.classList.remove(oldClass);
+  document.body.classList.add(newClass);
 }

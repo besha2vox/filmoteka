@@ -1,20 +1,10 @@
-.modal {
-  position: relative;
-  align-self: center;
-  justify-self: center;
-  margin: auto;
+.modal-movie {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 48px 20px;
   row-gap: 20px;
-  width: 100%;
-  max-width: 806px;
-  max-height: 100%;
-  background-color: $primeryBackgroundColor;
-  overflow: auto;
 
   @media screen and (min-width: $tablet) {
     flex-direction: row;
