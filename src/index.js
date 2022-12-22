@@ -5,6 +5,7 @@ import { modalTemplate } from './js/templates/modal-template';
 import { ThemeSwitcher } from './js/theme-switcher';
 import { LanguageSwitcher } from './js/language-switcher';
 import { renderTrailer } from './js/trailer';
+import { renderPagination } from './js/pagination';
 
 const MOVIE_STORAGE_KEY = 'movie-list';
 
@@ -43,12 +44,12 @@ themeSwitcher.renderTheme();
 // getTranding();
 
 export async function getTranding() {
-  const movies = await api.fetchTrendingMovies('day');
+  const movies = await api.fetchTrendingMovies('week');
   const template = movies.results.map(galleryTemplate).join('');
   setMovieLocalStorage(JSON.stringify(movies.results));
 
   refs.movies.innerHTML = template;
-  // refs.pagination.innerHTML = ;
+  renderPagination(movies.total_pages, refs.pagination, getTranding, api);
 }
 
 function onEscClose(e) {

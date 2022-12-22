@@ -7,8 +7,8 @@
 
 export class Fetch {
   constructor() {
-    this._queryToFetch = '';
-    this._pageToFetch = 1;
+    this.queryToFetch = '';
+    this.pageToFetch = 1;
 
     this.BASE_URL = 'https://api.themoviedb.org/3/';
     this.API_KEY = '9cca312caffd11f4ae9f11244d585025';
@@ -34,6 +34,7 @@ export class Fetch {
     const url = `${this.BASE_URL}${this.TRENDING_MOVIES}${tranding}?api_key=${
       this.API_KEY
     }&page=${this.pageToFetch}&language=${this.getLanguage()}`;
+
     return await this.basicFetch(url);
   }
 
@@ -57,26 +58,19 @@ export class Fetch {
   }
 
   resetPage() {
-    this._pageToFetch = 0;
+    this.pageToFetch = 1;
+  }
+
+  incrementPage() {
+    this.pageToFetch += 1;
+  }
+
+  decrementPage() {
+    if (this.pageToFetch <= 1) return;
+    this.pageToFetch -= 1;
   }
 
   getLanguage() {
     return localStorage.getItem('lang');
-  }
-
-  get queryToFetch() {
-    return this._queryToFetch;
-  }
-
-  set queryToFetch(keyword) {
-    this._queryToFetch = keyword;
-  }
-
-  get pageToFetch() {
-    return this._pageToFetch;
-  }
-
-  set pageToFetch(num) {
-    this._pageToFetch = num;
   }
 }
